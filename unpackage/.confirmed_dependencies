@@ -1,0 +1,19 @@
+{
+  "login.html": {
+    "href": "login.html",
+    "priority": 0,
+    "resources": [
+      "css/common.css",
+      "js/mui/js/mui.min.js",
+      "js/mui/css/mui.min.css",
+      "js/mui/fonts/mui.ttf",
+      "js/jquery/jquery-2.2.0.min.js",
+      "js/login.js",
+      "js/utils.js",
+      "js/config.js",
+      "js/weui/js/jquery-weui.min.js",
+      "js/weui/css/jquery-weui.min.css"
+    ],
+    "refer": []
+  }
+}

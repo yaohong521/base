@@ -1,0 +1,24 @@
+.bgc3f{background-color: #fff;}
+.bgc30{background-color: #000;}
+.clr3f{color:#fff ;}
+.clr30{color:#000 ;}
+
+.ct_center{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
+.ct_l{float: left;}
+.ct_r{float: right;}
+.ct_c{text-align: center;}
+.wtall{width: 100%;}
+
+.ht5{height: 5px;}
+.ht10{height: 10px;}
+.ht15{height: 15px;}
+.ht20{height: 20px;}
+.ht25{height: 25px;}
+.ht30{height: 30px;}
+.ht40{height: 40px;}
+.ht50{height: 50px;}
+.ht100{height: 100px;}
+
+.mt5{margin-top: 5px}
+.mt10{margin-top: 10px}
+.mt20{margin-top: 20px}
