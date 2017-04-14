@@ -8,6 +8,10 @@
 .ct_r{float: right;}
 .ct_c{text-align: center;}
 .wtall{width: 100%;}
+.wt50{width: 50%;}
+
+.disp1{display: block}
+.disp2{display: inline-block}
 
 .ht5{height: 5px;}
 .ht10{height: 10px;}
