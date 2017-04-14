@@ -2,7 +2,7 @@
 .bgc30{background-color: #000;}
 .clr3f{color:#fff ;}
 .clr30{color:#000 ;}
-.clrred{color:#ff5053 ;}
+.clrred{color:#ff5053;}
 
 .ct_center{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
 .ct_l{float: left;}
