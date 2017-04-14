@@ -7,10 +7,14 @@ document.getElementById("loginIn").addEventListener("tap", function () {
     if (userId.length == 0) {
         $("#errorTip").html("请输入您的用户名");
         return;
+    }else{
+        $("#errorTip").html("");
     }
     if (userPsw.length == 0) {
         $("#errorTip").html("请输入您的密码");
         return
+    }else{
+        $("#errorTip").html("");
     }
     var param = {
         USER_ID: userId,
