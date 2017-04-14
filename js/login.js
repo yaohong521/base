@@ -5,11 +5,11 @@ document.getElementById("loginIn").addEventListener("tap", function () {
     var userId = document.getElementById("userId").value;
     var userPsw = document.getElementById("userPsw").value;
     if (userId.length == 0) {
-        $.toast("请输入您的用户名");
+        $.alert("请输入您的用户名","温馨提示");
         return;
     }
     if (userPsw.length == 0) {
-        $.toast("请输入您的密码");
+        $.alert("请输入您的密码","温馨提示");
         return
     }
     var param = {
