@@ -8,14 +8,17 @@ document.getElementById("loginIn").addEventListener("tap", function () {
     if (userId.length == 0) {
         $("#errorTip").html("请输入您的用户名");
         return;
-    }else{
+    } else {
         $("#errorTip").html("");
     }
     if (userPsw.length == 0) {
         $("#errorTip").html("请输入您的密码");
         return
-    }else{
+    } else {
         $("#errorTip").html("");
+    }
+    if (1 == 1) {
+        $.alert("success", "温馨提示")
     }
     var param = {
         USER_ID: userId,
@@ -30,7 +33,7 @@ document.getElementById("loginIn").addEventListener("tap", function () {
 
 function getPosition() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(locationSuccess, locationError,{
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationError, {
             // 指示浏览器获取高精度的位置，默认为false
             enableHighAcuracy: true,
             // 指定获取地理位置的超时时间，默认不限时，单位为毫秒
@@ -38,13 +41,13 @@ function getPosition() {
             // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。
             maximumAge: 3000
         });
-    }else{
+    } else {
         alert("Your browser does not support Geolocation!");
     }
 
 }
-function locationError(error){
-    switch(error.code) {
+function locationError(error) {
+    switch (error.code) {
         case error.TIMEOUT:
             alert("A timeout occured! Please try again!");
             break;
@@ -60,8 +63,8 @@ function locationError(error){
     }
 }
 
- function locationSuccess(position){
+function locationSuccess(position) {
     var coords = position.coords;
-        alert(coords.latitude);
-        alert(coords.longitude);
+    alert(coords.latitude);
+    alert(coords.longitude);
 }
