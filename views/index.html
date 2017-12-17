@@ -38,6 +38,7 @@
             display: table-cell;
             vertical-align: middle;
             border: 1px solid #FFF;
+            border-radius: 5px;
         }
 
         .login-content-cell input {
@@ -58,7 +59,7 @@
 
         .login-content-cell button {
             display: block;
-            margin: 10px auto 20px auto;
+            margin: 10px auto 30px auto;
             background: none;
             color: #FFFFFF;
             width: 100px;
@@ -107,7 +108,7 @@
                 cxt.fillText(text, x, value);
                 words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
             })
-        }, 100)
+        }, 100);
     }
     draw();
 </script>
