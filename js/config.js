@@ -1,3 +1,3 @@
-Config={
-    ucenter:"http://wda521.club.com/ucenter"
+Config = {
+    ucenter: "http://wda521.club.com/ucenter"
 };

@@ -2,11 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/wda.css">
     <title>首页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            background: #000;
+        }
+
+        .login-content {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: auto;
+            background: none;
+            color: silver;
+            text-align: center;
+            display: table;
+        }
+
+        .login-content-cell {
+            display: table-cell;
+            vertical-align: middle;
+            border: 1px solid #FFF;
+        }
+
+        .login-content-cell input {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            height: 30px;
+            border-radius: 2px;
+            border: 0;
+            padding-left: 5px;
+        }
+
+        .login-content-cell div {
+            font-size: 18px;
+            font-weight: bold;
+            height: 30px;
+            margin-top: 20px;
+        }
+
+        .login-content-cell button {
+            display: block;
+            margin: 10px auto 20px auto;
+            background: none;
+            color: #FFFFFF;
+            width: 100px;
+            padding: 3px;
+            border-radius: 3px;
+        }
+    </style>
+
 </head>
 <body>
-这只是新的开始
+
+<canvas id="canvas">
+    您的浏览器不支持canvas,请升级或更换浏览器
+</canvas>
+<div class="wda-content">
+    <div class="login-content">
+        <div class="login-content-cell">
+            <div>登录</div>
+            <input type="text" placeholder="请输入您的账号">
+            <input type="password" placeholder="请输入您的密码">
+            <button>GO</button>
+        </div>
+    </div>
+</div>
+<script>
+    var can = document.getElementById("canvas");
+    var cxt = can.getContext("2d");
+
+    //设置画布的宽高
+    var w = can.width = window.screen.width;
+    var h = can.height = window.screen.height;
+
+    //定义数组
+    var words = new Array(256).join("1").split("");
+    var text = '';
+    var x = 0;
+    function draw() {
+        setInterval(function () {
+            cxt.clearRect(0, 0, w, h);
+            words.map(function (value, index) {
+                //随机选择一个字母
+                text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
+
+                x = index * 10;
+                cxt.fillStyle = "#FFF";
+                cxt.fillText(text, x, value);
+                words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
+            })
+        }, 100)
+    }
+    draw();
+</script>
 <audio autoplay="autoplay">
     <source src='http://dl.stream.qqmusic.qq.com/C400003yNMwO2lJpNX.m4a?vkey=1FCB2A5BA9081F3D898F55E058971AB2C48D8A43B5B737ED52B6A5C4D82D67430C5F6F0C657406F16DF90E3A66598564E5F30C67B4B8B2B9&guid=9542350512&uin=0&fromtag=66'/>
 </audio>
