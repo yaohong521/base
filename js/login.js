@@ -1,5 +1,8 @@
 $(document).ready(function () {
     mui.init();
+    setTimeout(function () {
+        $.alert("背景音乐已失效", "温馨提示");
+    }, 1000)
 });
 document.getElementById("loginIn").addEventListener("tap", function () {
     var userId = document.getElementById("userId").value;
