@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,8 @@
             padding: 0;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             overflow: hidden;
         }
@@ -69,52 +71,62 @@
     </style>
 
 </head>
+
 <body>
 
-<canvas id="canvas">
-    您的浏览器不支持canvas,请升级或更换浏览器
-</canvas>
-<div class="wda-content">
-    <div class="login-content">
-        <div class="login-content-cell">
-            <div>登录</div>
-            <input type="text" placeholder="请输入您的账号">
-            <input type="password" placeholder="请输入您的密码">
-            <button>GO</button>
+    <canvas id="canvas">
+        您的浏览器不支持canvas,请升级或更换浏览器
+    </canvas>
+    <div class="wda-content">
+        <div class="login-content">
+            <div class="login-content-cell">
+                <div>登录</div>
+                <input type="text" placeholder="请输入您的账号">
+                <input type="password" placeholder="请输入您的密码">
+                <button>GO</button>
+            </div>
         </div>
     </div>
-</div>
-<script>
-    setTimeout(function () {
-        $.alert("背景音乐已失效", "温馨提示");
-    }, 1000);
-    var can = document.getElementById("canvas");
-    var cxt = can.getContext("2d");
+    <script>
+        setTimeout(function () {
+            $.alert("背景音乐已失效", "温馨提示");
+        }, 1000);
+        var can = document.getElementById("canvas");
+        var cxt = can.getContext("2d");
 
-    //设置画布的宽高
-    var w = can.width = window.screen.width;
-    var h = can.height = window.screen.height;
+        //设置画布的宽高
+        var w = can.width = window.screen.width;
+        var h = can.height = window.screen.height;
 
-    //定义数组
-    var words = new Array(256).join("1").split("");
-    var text = '';
-    var x = 0;
-    function draw() {
-        setInterval(function () {
-            cxt.clearRect(0, 0, w, h);
-            words.map(function (value, index) {
-                //随机选择一个字母
-                text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
+        //定义数组
+        var words = new Array(256).join("1").split("");
+        var text = '';
+        var x = 0;
+        var change = true;
 
-                x = index * 10;
-                cxt.fillStyle = "#FFF";
-                cxt.font='15px';
-                cxt.fillText(text, x, value);
-                words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
-            })
-        }, 200);
-    }
-    draw();
-</script>
+        function draw() {
+            setInterval(function () {
+
+                cxt.clearRect(0, 0, w, h);
+                words.map(function (value, index) {
+                    //随机选择一个字母
+                    // text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
+                    if (change) {
+                        text = '♥♡♥♡♥';
+                    } else {
+                        text = '♡♥♥ ♡♡♥';
+                    }
+
+                    x = index * 10;
+                    cxt.fillStyle = "#FFF";
+                    cxt.font = '15px';
+                    cxt.fillText(text, x, value);
+                    words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
+                })
+            }, 200);
+        }
+        draw();
+    </script>
 </body>
+
 </html>
