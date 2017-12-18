@@ -88,9 +88,7 @@
         </div>
     </div>
     <script>
-        setTimeout(function () {
-            $.alert("背景音乐已失效", "温馨提示");
-        }, 1000);
+        //获取画布节点
         var can = document.getElementById("canvas");
         var cxt = can.getContext("2d");
 
@@ -102,31 +100,31 @@
         var words = new Array(256).join("1").split("");
         var text = '';
         var x = 0;
-        var change = true;
+        // var change = true;
 
         function draw() {
-            setInterval(function () {
+            cxt.clearRect(0, 0, w, h);
+            words.map(function (value, index) {
+                //随机选择一个字母
+                text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
+                // if (change) {
+                //     text = '♥';
+                //     change = false;
+                // } else {
+                //     text = '♡';
+                //     change = true;
+                // }
+                x = index * 10;
+                cxt.fillStyle = "#FFF";
+                cxt.font = '15px';
+                cxt.fillText(text, x, value);
+                words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
+            })
 
-                cxt.clearRect(0, 0, w, h);
-                words.map(function (value, index) {
-                    //随机选择一个字母
-                    // text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
-                    if (change) {
-                        text = '♥';
-                        change = false;
-                    } else {
-                        text = '♡';
-                        change = true;
-                    }
-                    x = index * 10;
-                    cxt.fillStyle = "#FFF";
-                    cxt.font = '15px';
-                    cxt.fillText(text, x, value);
-                    words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
-                })
-            }, 200);
         }
-        draw();
+        setInterval(function () {
+            draw();
+        }, 200);
     </script>
 </body>
 
