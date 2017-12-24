@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/wda.css">
+    <script type="text/javascript" src="../js/jquery/jquery-2.2.0.min.js"></script>
     <title>首页</title>
     <style>
         * {
@@ -74,22 +75,23 @@
 
 <body>
 
-    <canvas id="canvas">
-        您的浏览器不支持canvas,请升级或更换浏览器
-    </canvas>
-    <div class="wda-content">
-        <div class="login-content">
-            <div class="login-content-cell">
-                <div>登录</div>
-                <input type="text" placeholder="请输入您的账号">
-                <input type="password" placeholder="请输入您的密码">
-                <button>GO</button>
-            </div>
+<canvas id="canvas">
+    您的浏览器不支持canvas,请升级或更换浏览器
+</canvas>
+<div class="wda-content">
+    <div class="login-content">
+        <div class="login-content-cell">
+            <div>登录</div>
+            <input type="text" placeholder="请输入您的账号">
+            <input type="password" placeholder="请输入您的密码">
+            <button>GO</button>
         </div>
     </div>
-    <script>
-        //获取画布节点
-        var can = document.getElementById("canvas");
+</div>
+<script>
+    var can = document.getElementById("canvas");
+    //确定浏览器是否支持<canvas>元素
+    if (can.getContext) {
         var cxt = can.getContext("2d");
 
         //设置画布的宽高
@@ -100,32 +102,25 @@
         var words = new Array(256).join("1").split("");
         var text = '';
         var x = 0;
-        // var change = true;
 
         function draw() {
-            cxt.clearRect(0, 0, w, h);
+            cxt.fillStyle = 'rgba(0,0,0,.05)';
+            cxt.fillRect(0, 0, w, h);
+            cxt.fillStyle = '#CD7CC1';
             words.map(function (value, index) {
                 //随机选择一个字母
                 text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
-                // if (change) {
-                //     text = '♥';
-                //     change = false;
-                // } else {
-                //     text = '♡';
-                //     change = true;
-                // }
-                x = index * 10;
-                cxt.fillStyle = "#FFF";
-                cxt.font = '15px';
+                x = (index * 10) + 10;
+                cxt.font = '10pt Georgia';
                 cxt.fillText(text, x, value);
-                words[index] = value > (768 + Math.random() * 484) ? 0 : value + 30;
+                words[index] = value > (768 + Math.random() * 484) ? 0 : value + 10;
             })
-
         }
         setInterval(function () {
             draw();
-        }, 200);
-    </script>
+        }, 30);
+    }
+</script>
 </body>
 
 </html>
