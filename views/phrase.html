@@ -32,12 +32,12 @@
             border: 0;
         }
 
-        @keyframes bodyContent1 {
+        @-webkit-keyframes bodyContent1 {
             0% {
                 background: yellow;
                 left: 0;
                 top: 0;
-                transform: rotate(20deg)
+                -webkit-transform: rotate(20deg)
             }
             25% {
                 background: cornflowerblue;
@@ -48,7 +48,7 @@
                 background: pink;
                 left: 200px;
                 top: 200px;
-                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
             }
             75% {
                 background: black;
@@ -62,12 +62,12 @@
             }
         }
 
-        @keyframes bodyContent2 {
+        @-webkit-keyframes bodyContent2 {
             0% {
                 background: yellow;
                 right: 0;
                 top: 0;
-                transform: rotate(-20deg)
+                -webkit-transform: rotate(-20deg)
             }
             25% {
                 background: cornflowerblue;
@@ -78,7 +78,7 @@
                 background: pink;
                 right: 200px;
                 top: 200px;
-                transform: rotate(-360deg);
+                -webkit-transform: rotate(-360deg);
             }
             75% {
                 background: black;
@@ -91,15 +91,16 @@
                 top: 148px;
             }
         }
-        body input{
+
+        body input {
             display: block;
             margin: 20px auto;
         }
     </style>
     <script>
         $(function () {
-            var w = window.screen.width;
-            var h = window.screen.height;
+//            var w = window.screen.width;
+//            var h = window.screen.height;
 //            $("#content").css({"width": w, "height": h});
         });
     </script>
