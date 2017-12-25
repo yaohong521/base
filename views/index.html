@@ -88,42 +88,53 @@
             <div>登录</div>
             <input type="text" placeholder="请输入您的账号">
             <input type="password" placeholder="请输入您的密码">
-            <button>GO</button>
+            <button id="nextPage">GO</button>
         </div>
     </div>
 </div>
 <script>
-    var can = document.getElementById("canvas");
-    //确定浏览器是否支持<canvas>元素
-    if (can.getContext) {
-        var cxt = can.getContext("2d");
+    $(function () {
+        var can = document.getElementById("canvas");
+        //确定浏览器是否支持<canvas>元素
+        if (can.getContext) {
+            var cxt = can.getContext("2d");
 
-        //设置画布的宽高
-        var w = can.width = window.screen.width;
-        var h = can.height = window.screen.height;
+            //设置画布的宽高
+            var w = can.width = window.screen.width;
+            var h = can.height = window.screen.height;
 
-        //定义数组
-        var words = new Array(256).join("1").split("");
-        var text = '';
-        var x = 0;
+            //定义数组
+            var words = new Array(256).join("1").split("");
+            var text = '';
+            var x = 0;
 
-        function draw() {
-            cxt.fillStyle = 'rgba(0,0,0,.05)';
-            cxt.fillRect(0, 0, w, h);
-            cxt.fillStyle = '#CD7CC1';
-            words.map(function (value, index) {
-                //随机选择一个字母
-                text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
-                x = (index * 10) + 10;
-                cxt.font = '10pt Georgia';
-                cxt.fillText(text, x, value);
-                words[index] = value > (768 + Math.random() * 484) ? 0 : value + 10;
-            })
+            function draw() {
+                cxt.fillStyle = 'rgba(0,0,0,.05)';
+                cxt.fillRect(0, 0, w, h);
+                cxt.fillStyle = '#CD7CC1';
+                words.map(function (value, index) {
+                    //随机选择一个字母
+                    text = String.fromCharCode(65 + Math.ceil(Math.random() * 57));
+                    x = (index * 10) + 10;
+                    cxt.font = '10pt Georgia';
+                    cxt.fillText(text, x, value);
+
+                    words[index] = value > (768 + Math.random() * 484) ? 0 : value + 10;
+                })
+            }
+
+            setInterval(function () {
+                draw();
+            }, 30);
         }
-        setInterval(function () {
-            draw();
-        }, 30);
-    }
+
+        $("#nextPage").click(function () {
+            $.alert("进入下一个页面", "温馨提示",function () {
+                window.location.href = "phrase.html"
+            });
+        });
+    });
+
 </script>
 </body>
 
