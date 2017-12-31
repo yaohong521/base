@@ -12,32 +12,15 @@
         }
 
         .wda-body-content1 {
-            display: inline-block;
-            width: 300px;
-            height: 50px;
-            margin-top: 150px;
-            position: relative;
-            animation: bodyContent1 5s;
-            -webkit-animation: bodyContent1 5s;
+            position: absolute;
+            animation: bodyContent 3s;
+            -webkit-animation: bodyContent 3s;
             animation-fill-mode: forwards;
             -webkit-animation-fill-mode: forwards;
             border: 0;
         }
 
-        .wda-body-content2 {
-            display: inline-block;
-            width: 300px;
-            height: 50px;
-            margin-top: 150px;
-            position: relative;
-            animation: bodyContent2 5s;
-            -webkit-animation: bodyContent2 5s;
-            animation-fill-mode: forwards;
-            -webkit-animation-fill-mode: forwards;
-            border: 0;
-        }
-
-        @keyframes bodyContent1 {
+        @keyframes bodyContent {
             0% {
                 background: yellow;
                 left: 0;
@@ -62,42 +45,12 @@
             }
             100% {
                 background: slategray;
-                left: 150px;
+                left: 100px;
                 top: 100px;
             }
         }
 
-        @keyframes bodyContent2 {
-            0% {
-                background: yellow;
-                right: 0;
-                top: 0;
-                transform: rotate(-20deg)
-            }
-            25% {
-                background: cornflowerblue;
-                right: 200px;
-                top: 0;
-            }
-            50% {
-                background: pink;
-                right: 200px;
-                top: 200px;
-                transform: rotate(-360deg);
-            }
-            75% {
-                background: black;
-                right: 0;
-                top: 200px;
-            }
-            100% {
-                background: slategray;
-                right: 150px;
-                top: 148px;
-            }
-        }
-
-        @-webkit-keyframes bodyContent1 {
+        @-webkit-keyframes bodyContent {
             0% {
                 background: yellow;
                 left: 0;
@@ -122,38 +75,8 @@
             }
             100% {
                 background: slategray;
-                left: 150px;
+                left: 100px;
                 top: 100px;
-            }
-        }
-
-        @-webkit-keyframes bodyContent2 {
-            0% {
-                background: yellow;
-                right: 0;
-                top: 0;
-                -webkit-transform: rotate(-20deg)
-            }
-            25% {
-                background: cornflowerblue;
-                right: 200px;
-                top: 0;
-            }
-            50% {
-                background: pink;
-                right: 200px;
-                top: 200px;
-                -webkit-transform: rotate(-360deg);
-            }
-            75% {
-                background: black;
-                right: 0;
-                top: 200px;
-            }
-            100% {
-                background: slategray;
-                right: 150px;
-                top: 148px;
             }
         }
 
@@ -164,18 +87,18 @@
     </style>
     <script>
         $(function () {
-//            var w = window.screen.width;
-//            var h = window.screen.height;
-//            $("#content").css({"width": w, "height": h});
+            var w = window.screen.width;
+            var h = window.screen.height;
+//            alert("当前屏幕宽度" + w);
+//            alert("当前屏幕高度" + h);
         });
     </script>
 </head>
 <body>
 <div class="wda-body-content1" id="content1">
     <input type="text" placeholder="请输入您手机号"/>
-</div>
-<div class="wda-body-content2" id="content2">
-    <input type="text" placeholder="请输入您密码"/>
+    <input type="password" placeholder="请输入您的密码"/>
+    <input type="button" value="登录">
 </div>
 </body>
 </html>
