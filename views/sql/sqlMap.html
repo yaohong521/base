@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>1、WITH xxx AS的使用</h3>
+<pre>
+    WITH WDA AS(
+    SELECT * FROM CS_USER
+    WHERE USER_PHONE='15169160503'
+    )
+    <span style="color: #0bb20c">//上面创建wda临时表，下面的操作都在wda里操作</span>
+    SELECT A.*,B.* FROM
+    (
+    SELECT COUNT(*) USER_COUNT1 FROM WDA
+    WHERE NICK_NAME='大神'
+    ) A LEFT JOIN (
+    SELECT COUNT(*) USER_COUNT2 FROM WDA
+    WHERE USER_PHONE='15169160503'
+    ) B ON 1=1
+</pre>
+<hr />
+</body>
+</html>
