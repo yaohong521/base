@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="../../js/jquery/jquery-2.2.0.min.js"></script>
     <title>第一章 沉默</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         html,
         body {
             height: 100%;
@@ -23,9 +28,13 @@
 </head>
 <body>
 <canvas id="bodyCanvas"></canvas>
-<canvas id="canvas" width="400" height="400"></canvas>
+<canvas id="canvas"></canvas>
 <script type="text/javascript">
-    window.onload = function () {
+    $(function () {
+        setTimeout(draw, 2000)
+    });
+
+    function draw() {
         var bodyCan = document.getElementById("bodyCanvas");
         var can = document.getElementById("canvas");
         if (bodyCan.getContext) {
@@ -39,13 +48,13 @@
             can.width = can.height = w / 2;
 
             //背景图
-            bodyCxt.fillStyle = "#000";
+            bodyCxt.fillStyle = "#D7B3D7";
             bodyCxt.fillRect(0, 0, w, h);
 
             var colorArray = ["#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000"];
             for (var i = 0; i < 20; i++) {
                 cxt.fillStyle = colorArray[i];
-                cxt.fillRect(10 * (i + 1), 10 * (i + 1), w / 2 - 2 * (10 * (i + 1)), w / 2 - 2 * (10 * (i + 1)));
+                cxt.fillRect(10 * (i + 1), 10 * (i + 1), (w / 2) - 2 * (10 * (i + 1)), (w / 2) - 2 * (10 * (i + 1)));
             }
         } else {
             alert("您的浏览器不支持canvas标签");
