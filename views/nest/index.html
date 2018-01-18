@@ -13,8 +13,9 @@
 
         html,
         body {
+            width: 100%;
             height: 100%;
-            overflow: hidden;
+            /*overflow: hidden;*/
         }
 
         .wda-content-center {
@@ -59,11 +60,12 @@
 //        w = window.screen.width;
 //        h = window.screen.height;
 
-        w = window.screen.availWidth ;
-        h = window.screen.availHeight ;
-//
-//        w = window.document.body.offsetHeight;
-//        h = window.document.body.offsetWidth;
+//        w = window.screen.availWidth ;
+//        h = window.screen.availHeight ;
+
+        w = window.document.body.offsetWidth;
+        h = window.document.body.offsetHeight;
+
 
         countTime();
     });
