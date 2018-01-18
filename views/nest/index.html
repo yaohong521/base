@@ -48,7 +48,7 @@
 <script type="text/javascript">
     var w, h;
     var bodyCan, can, bodyCxt, cxt;
-    var time = 1, t = 5, breakWidth = 0, breakHeight = 0, breakTime = 1;
+    var time = 1, t = 1, breakWidth = 0, breakHeight = 0, breakTime = 1;
     $(function () {
         bodyCan = document.getElementById("bodyCanvas");
         can = document.getElementById("canvas");
@@ -56,8 +56,15 @@
         cxt = can.getContext("2d");
 
         //获得屏幕宽度和高度
-        w = window.screen.width;
-        h = window.screen.height;
+//        w = window.screen.width;
+//        h = window.screen.height;
+
+        w = window.screen.availWidth ;
+        h = window.screen.availHeight ;
+//
+//        w = window.document.body.offsetHeight;
+//        h = window.document.body.offsetWidth;
+
         countTime();
     });
 
@@ -114,7 +121,7 @@
                 breakTime = breakTime + 1;
             }
             time = time + 1;
-            setTimeout(initWords, 1500);
+            setTimeout(initWords, 500);
         }
     }
 </script>
