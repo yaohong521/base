@@ -37,13 +37,17 @@
     </style>
 </head>
 <body>
-<audio src="../../mp3/You.mp3"  autoplay="autoplay" loop="loop">
-    您的浏览器不支持音频标签
+<audio autoplay="autoplay" loop="loop">
+    <source src='../../mp3/You.mp3'/>
 </audio>
 <div class="wda-content-center" style="width: 100%;text-align: center">
-    正如你所期待的一样，倒计时
-    <span id="time" style="font-size: 15px;font-weight: bold;color: red"></span>
-    秒
+    <div>静静地听这首曲子</div>
+    <div style="margin-top: 20px">
+        正如你所期待的一样
+    </div>
+    <div style="margin-top: 20px">
+        倒计时&nbsp;<span id="time" style="font-size: 18px;font-weight: bold;color: red"></span>&nbsp;秒
+    </div>
 </div>
 <div class="wda-content dsp_1" id="content">
     <canvas id="bodyCanvas"></canvas>
@@ -52,7 +56,7 @@
 <script type="text/javascript">
     var w, h;
     var bodyCan, can, bodyCxt, cxt, txtHeight;
-    var time = 1, t = 10, breakWidth = 0, breakHeight = 0, breakTime = 1;
+    var time = 1, t = 120, breakWidth = 0, breakHeight = 0, breakTime = 1;
     var myWords = [
         {"content": "1、因你朴实的外表，善良的心，我选择跟你在一起."},
         {"content": "2、为了能让你坚强些，我做了一些你抵触的事."},
@@ -138,7 +142,7 @@
                 breakTime = breakTime + 1;
             }
             time = time + 1;
-            setTimeout(initWords, 1500);
+            setTimeout(initWords, 3000);
         }
     }
 </script>
