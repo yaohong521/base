@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>第一章 沉默</title>
     <style>
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         canvas {
             background-color: #000;
             position: absolute;
@@ -14,16 +20,30 @@
     </style>
 </head>
 <body>
-<canvas id="canvas" width="400px" height="400px"></canvas>
+<canvas id="bodyCanvas"></canvas>
+<canvas id="canvas" width="400" height="400"></canvas>
 <script type="text/javascript">
     window.onload = function () {
+        var bodyCan = document.getElementById("bodyCanvas");
         var can = document.getElementById("canvas");
         if (can.getContext) {
+            var bodyCxt = bodyCan.getContext("2d");
             var cxt = can.getContext("2d");
+
+            //获得屏幕宽度和高度
+            var w = bodyCan.width = window.screen.width;
+            var h = bodyCan.height = window.screen.height;
+
+            can.width = can.height = w * 0.8;
+
+            //背景图
+            bodyCxt.fillStyle = "#000";
+            bodyCxt.fillRect(0, 0, w, h);
+
             var colorArray = ["#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000"];
             for (var i = 0; i < 20; i++) {
                 cxt.fillStyle = colorArray[i];
-                cxt.fillRect(10 * (i + 1), 10 * (i + 1), 400 - 2 * (10 * (i + 1)), 400 - 2 * (10 * (i + 1)));
+                cxt.fillRect(10 * (i + 1), 10 * (i + 1), w * 0.8 - 2 * (10 * (i + 1)), w * 0.8 - 2 * (10 * (i + 1)));
             }
         } else {
             alert("您的浏览器不支持canvas标签");
