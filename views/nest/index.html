@@ -17,23 +17,50 @@
             overflow: hidden;
         }
 
-        #canvas {
-            background-color: #000;
+        .wda-content-center {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            font-size: 13px;
+        }
+
+        .wda-bg-black {
+            background-color: #000;
+        }
+
+        .dsp_1 {
+            display: none;
         }
     </style>
 </head>
 <body>
-<canvas id="bodyCanvas"></canvas>
-<canvas id="canvas"></canvas>
+<div class="wda-content-center">正如你所期待的一样，倒计时<span id="time"></span></div>
+<div class="wda-content dsp_1" id="content">
+    <canvas id="bodyCanvas"></canvas>
+    <canvas id="canvas" class="wda-content-center wda-bg-black"></canvas>
+</div>
 <script type="text/javascript">
+    var w, h;
     $(function () {
-        setTimeout(draw, 2000)
+        //获得屏幕宽度和高度
+        w = window.screen.width;
+        h = window.screen.height;
+        countTime();
     });
 
+
+    var t = 5;
+    function countTime() {
+        if (t == 0) {
+            $("#content").removeClass("dsp_1");
+            draw();
+        } else if (t > 0) {
+            $("#time").html(t + "s");
+            t = t - 1;
+            setTimeout(countTime, 1000);
+        }
+    }
     function draw() {
         var bodyCan = document.getElementById("bodyCanvas");
         var can = document.getElementById("canvas");
@@ -41,17 +68,15 @@
             var bodyCxt = bodyCan.getContext("2d");
             var cxt = can.getContext("2d");
 
-            //获得屏幕宽度和高度
-            var w = bodyCan.width = window.screen.width;
-            var h = bodyCan.height = window.screen.height;
-
+            bodyCan.width = w;
+            bodyCan.height = h;
             can.width = can.height = w / 2;
 
             //背景图
-            bodyCxt.fillStyle = "#D7B3D7";
+            bodyCxt.fillStyle = "#000";
             bodyCxt.fillRect(0, 0, w, h);
 
-            var colorArray = ["#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000"];
+            var colorArray = new Array(20).join("#FFF-#000-").split("-");
             for (var i = 0; i < 20; i++) {
                 cxt.fillStyle = colorArray[i];
                 cxt.fillRect(5 * (i + 1), 5 * (i + 1), (w / 2) - 2 * (5 * (i + 1)), (w / 2) - 2 * (5 * (i + 1)));
