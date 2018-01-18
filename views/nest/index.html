@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="../../js/jquery/jquery-2.2.0.min.js"></script>
-    <title>第一章 沉默</title>
+    <title>第一章 期许</title>
     <style>
         * {
             margin: 0;
@@ -37,6 +37,9 @@
     </style>
 </head>
 <body>
+<audio src="../../mp3/You.mp3"  autoplay="autoplay" loop="loop">
+    您的浏览器不支持音频标签
+</audio>
 <div class="wda-content-center" style="width: 100%;text-align: center">
     正如你所期待的一样，倒计时
     <span id="time" style="font-size: 15px;font-weight: bold;color: red"></span>
@@ -51,26 +54,26 @@
     var bodyCan, can, bodyCxt, cxt, txtHeight;
     var time = 1, t = 10, breakWidth = 0, breakHeight = 0, breakTime = 1;
     var myWords = [
-        {"content": "1、因你朴实的外表，善良的心，我选择跟你在一起"},
-        {"content": "2、为了能让你坚强些，我做了一些你抵触的事"},
-        {"content": "3、我后悔，因工作忙而忽略你"},
-        {"content": "4、爱，这个字，我只说了一次，从我回来时，那次电话里"},
-        {"content": "5、你没有做错什么，因为你是女孩子，需要被呵护，被爱"},
+        {"content": "1、因你朴实的外表，善良的心，我选择跟你在一起."},
+        {"content": "2、为了能让你坚强些，我做了一些你抵触的事."},
+        {"content": "3、我后悔，因工作忙而忽略你."},
+        {"content": "4、爱，这个字，我只说了一次，从我回来时，那次电话里."},
+        {"content": "5、你没有做错什么，因为你是女孩子，需要被呵护，被爱."},
         {"content": "6、所有的一切或许这就是命运的安排..."},
-        {"content": "7、以后，你自由了"},
-        {"content": "8、我不是男人是我放下了尊严,这值得"},
-        {"content": "9、选对一个人简单，厮守终生确很难"},
-        {"content": "10、择一人，终一生，对你的承诺，不变"},
-        {"content": "11、放开一切，只因你过的太苦"},
-        {"content": "12、弃旧迎新吧"},
+        {"content": "7、以后，你自由了."},
+        {"content": "8、我不是男人是我放下了尊严,这值得."},
+        {"content": "9、选对一个人简单，厮守终生确很难."},
+        {"content": "10、择一人，终一生，对你的承诺，不变."},
+        {"content": "11、放开一切，只因你过的太苦."},
+        {"content": "12、弃旧迎新吧!"},
         {"content": "13、（1-13-1）"},
         {"content": "14、愿你能读懂上面的话语，你有5秒的时间记忆!"},
-        {"content": "15、5"},
-        {"content": "16、4"},
-        {"content": "17、3"},
-        {"content": "18、2"},
-        {"content": "19、1"},
-        {"content": "20、再见"}
+        {"content": "5s"},
+        {"content": "4s"},
+        {"content": "3s"},
+        {"content": "2s"},
+        {"content": "1s"},
+        {"content": "再见!"}
     ];
     $(function () {
         bodyCan = document.getElementById("bodyCanvas");
@@ -122,14 +125,15 @@
             bodyCxt.clearRect(0, 0, w, time * (txtHeight + 10));
             bodyCxt.fillStyle = "#000";
             bodyCxt.fillRect(0, 0, w, time * (txtHeight + 10));
+            window.location.href = "myLove.html";
         } else {
             if (time * txtHeight <= ( h / 2 - w / 4)) {
                 breakWidth = time * 10;
                 breakHeight = time * txtHeight;
-                bodyCxt.fillStyle = "#FFF";
+                bodyCxt.fillStyle = "#FF0000";
                 bodyCxt.fillText(myWords[time - 1].content, time * 10, time * txtHeight);
             } else {
-                bodyCxt.fillStyle = "#D7B3D7";
+                bodyCxt.fillStyle = "#FFFF00";
                 bodyCxt.fillText(myWords[time - 1].content, breakWidth - 10 * (breakTime - 1), time * txtHeight + h / 2 + w / 4 - breakHeight);
                 breakTime = breakTime + 1;
             }
