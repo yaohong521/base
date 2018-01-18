@@ -50,6 +50,29 @@
     var w, h;
     var bodyCan, can, bodyCxt, cxt;
     var time = 1, t = 1, breakWidth = 0, breakHeight = 0, breakTime = 1;
+    var myWords = [
+        {"content": "1、因你朴实的外表，善良的心，我选择跟你在一起"},
+        {"content": "2、为了能让你坚强些，我做了一些你抵触的事"},
+        {"content": "3、我后悔，因工作忙而忽略你"},
+        {"content": "4、爱，这个字，我只说了一次，从我回来时，那次电话里"},
+        {"content": "5、你没有做错什么，因为你是女孩子，需要被呵护，被爱"},
+        {"content": "."},
+        {"content": ".."},
+        {"content": "..."},
+        {"content": "...."},
+        {"content": "...."},
+        {"content": "..."},
+        {"content": ".."},
+        {"content": "."},
+        {"content": "6、所有的一切或许这就是命运的安排..."},
+        {"content": "7、以后，你自由了"},
+        {"content": "8、我不是男人的原因是我放下了尊严，对于我这值得"},
+        {"content": "9、选对一个人简单，厮守终生确很难"},
+        {"content": "10、择一人，终一生，对你的承诺，不变"},
+        {"content": "11、放开一切，只因你过的太苦"},
+        {"content": "12、弃旧迎新吧"},
+        {"content": "13、（1-13-1）"}
+    ];
     $(function () {
         bodyCan = document.getElementById("bodyCanvas");
         can = document.getElementById("canvas");
@@ -57,22 +80,14 @@
         cxt = can.getContext("2d");
 
         //获得屏幕宽度和高度
-//        w = window.screen.width;
-//        h = window.screen.height;
-
-//        w = window.screen.availWidth ;
-//        h = window.screen.availHeight ;
-
         w = window.document.body.offsetWidth;
         h = window.document.body.offsetHeight;
-
 
         countTime();
     });
 
     function draw() {
         if (bodyCan.getContext) {
-
             bodyCan.width = w;
             bodyCan.height = h;
             can.width = can.height = w / 2;
@@ -116,14 +131,14 @@
                 breakWidth = time * 10;
                 breakHeight = time * 20;
                 bodyCxt.fillStyle = "#FFF";
-                bodyCxt.fillText("我知道你不喜欢黑色", time * 10, time * 20);
+                bodyCxt.fillText(myWords[time - 1].content, time * 10, time * 20);
             } else {
                 bodyCxt.fillStyle = "#D7B3D7";
-                bodyCxt.fillText("我知道你不喜欢黑色", breakWidth - 10 * (breakTime - 1), time * 20 + h / 2 + w / 4 - breakHeight);
+                bodyCxt.fillText(myWords[time - 1].content, breakWidth - 10 * (breakTime - 1), time * 20 + h / 2 + w / 4 - breakHeight);
                 breakTime = breakTime + 1;
             }
             time = time + 1;
-            setTimeout(initWords, 500);
+            setTimeout(initWords, 1500);
         }
     }
 </script>
