@@ -51,10 +51,10 @@
             bodyCxt.fillStyle = "#D7B3D7";
             bodyCxt.fillRect(0, 0, w, h);
 
-            var colorArray = ["#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000"];
+            var colorArray = ["#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000", "#FFF", "#000"];
             for (var i = 0; i < 20; i++) {
                 cxt.fillStyle = colorArray[i];
-                cxt.fillRect(10 * (i + 1), 10 * (i + 1), (w / 2) - 2 * (10 * (i + 1)), (w / 2) - 2 * (10 * (i + 1)));
+                cxt.fillRect(5 * (i + 1), 5 * (i + 1), (w / 2) - 2 * (5 * (i + 1)), (w / 2) - 2 * (5 * (i + 1)));
             }
         } else {
             alert("您的浏览器不支持canvas标签");
