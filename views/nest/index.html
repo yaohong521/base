@@ -22,7 +22,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .wda-bg-black {
@@ -32,41 +32,37 @@
         .dsp_1 {
             display: none;
         }
+
     </style>
 </head>
 <body>
-<div class="wda-content-center">正如你所期待的一样，倒计时<span id="time"></span></div>
+<div class="wda-content-center" style="width: 100%;text-align: center">
+    正如你所期待的一样，倒计时
+    <span id="time" style="font-size: 15px;font-weight: bold;color: red"></span>
+    秒
+</div>
 <div class="wda-content dsp_1" id="content">
     <canvas id="bodyCanvas"></canvas>
     <canvas id="canvas" class="wda-content-center wda-bg-black"></canvas>
 </div>
 <script type="text/javascript">
     var w, h;
+    var bodyCan, can, bodyCxt, cxt;
+    var time = 1, t = 5, breakWidth = 0, breakHeight = 0, breakTime = 1;
     $(function () {
+        bodyCan = document.getElementById("bodyCanvas");
+        can = document.getElementById("canvas");
+        bodyCxt = bodyCan.getContext("2d");
+        cxt = can.getContext("2d");
+
         //获得屏幕宽度和高度
         w = window.screen.width;
         h = window.screen.height;
         countTime();
     });
 
-
-    var t = 5;
-    function countTime() {
-        if (t == 0) {
-            $("#content").removeClass("dsp_1");
-            draw();
-        } else if (t > 0) {
-            $("#time").html(t + "s");
-            t = t - 1;
-            setTimeout(countTime, 1000);
-        }
-    }
     function draw() {
-        var bodyCan = document.getElementById("bodyCanvas");
-        var can = document.getElementById("canvas");
         if (bodyCan.getContext) {
-            var bodyCxt = bodyCan.getContext("2d");
-            var cxt = can.getContext("2d");
 
             bodyCan.width = w;
             bodyCan.height = h;
@@ -76,13 +72,49 @@
             bodyCxt.fillStyle = "#000";
             bodyCxt.fillRect(0, 0, w, h);
 
+            //中心图
             var colorArray = new Array(20).join("#FFF-#000-").split("-");
             for (var i = 0; i < 20; i++) {
                 cxt.fillStyle = colorArray[i];
                 cxt.fillRect(5 * (i + 1), 5 * (i + 1), (w / 2) - 2 * (5 * (i + 1)), (w / 2) - 2 * (5 * (i + 1)));
             }
+            initWords();
         } else {
             alert("您的浏览器不支持canvas标签");
+        }
+    }
+
+    function countTime() {
+        if (t == 0) {
+            $("#content").removeClass("dsp_1");
+            draw();
+        } else if (t > 0) {
+            $("#time").html(t);
+            t = t - 1;
+            setTimeout(countTime, 1000);
+        }
+    }
+    function initWords() {
+        if (time * 20 > h) {
+            bodyCxt.clearRect(0, 0, w, time * 40);
+            bodyCxt.fillStyle = "#000";
+            bodyCxt.fillRect(0, 0, w, time * 40);
+        } else {
+            bodyCxt.clearRect(0, 0, w, time * 40);
+            bodyCxt.fillStyle = "#000";
+            bodyCxt.fillRect(0, 0, w, time * 40);
+            if (time * 20 <= ( h / 2 - w / 4)) {
+                breakWidth = time * 10;
+                breakHeight = time * 20;
+                bodyCxt.fillStyle = "#FFF";
+                bodyCxt.fillText("我知道你不喜欢黑色", time * 10, time * 20);
+            } else {
+                bodyCxt.fillStyle = "#D7B3D7";
+                bodyCxt.fillText("我知道你不喜欢黑色", breakWidth - 10 * (breakTime - 1), time * 20 + h / 2 + w / 4 - breakHeight);
+                breakTime = breakTime + 1;
+            }
+            time = time + 1;
+            setTimeout(initWords, 1500);
         }
     }
 </script>
