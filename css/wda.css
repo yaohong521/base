@@ -1,7 +1,87 @@
-.wda-content {
-    position: absolute;
-    top: 0;
-    left: 0;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wda-header {
+    position: fixed;
     width: 100%;
-    height: 100%;
+    height: 44px;
+    line-height: 44px;
+    background: #f7f7f7;
+}
+
+.wda-header-cell {
+    padding: 0 20px;
+}
+
+.wda-header ~ .wda-content {
+    padding-top: 44px;
+}
+
+.wda-pull-left {
+    float: left;
+}
+
+.wda-pull-right {
+    float: right;
+}
+
+.wda-content {
+    width: 100%;
+}
+.wda-prop-100 {
+    width: 100%;
+}
+.wda-prop-96 {
+    width: 96%;
+}
+
+.wda-prop-90 {
+    width: 90%;
+}
+
+.wda-prop-80 {
+    width: 80%;
+}
+
+.wda-prop-70 {
+    width: 70%;
+}
+.wda-prop-50 {
+    width: 50%;
+}
+.wda-prop-30 {
+    width: 30%;
+}
+.wda-prop-20 {
+    width: 20%;
+}
+
+.wda-tree {
+    display: inline-block;
+    text-align: center;
+    border: 2px dotted #C0C0C0;
+    margin-left: -2px;
+}
+
+.wda-tree-cell {
+    position: relative;
+    padding: 15px 0;
+    font-size: 12px;
+    width: 100%;
+}
+
+.wda-tree-cell:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    content: '';
+    background-color: #F3F3F3;
+}
+
+.wda-tree-cell:last-child:after {
+    background: none
 }
