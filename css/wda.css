@@ -15,6 +15,10 @@
     padding: 0 10px;
 }
 
+.wda-mark {
+    position: fixed;
+}
+
 .wda-header ~ .wda-content {
     padding-top: 44px;
 }
@@ -30,9 +34,11 @@
 .wda-content {
     width: 100%;
 }
+
 .wda-prop-100 {
     width: 100%;
 }
+
 .wda-prop-96 {
     width: 96%;
 }
@@ -48,12 +54,15 @@
 .wda-prop-70 {
     width: 70%;
 }
+
 .wda-prop-50 {
     width: 50%;
 }
+
 .wda-prop-30 {
     width: 30%;
 }
+
 .wda-prop-20 {
     width: 20%;
 }
@@ -84,4 +93,8 @@
 
 .wda-tree-cell:last-child:after {
     background: none
+}
+
+.wda-font-white {
+    color: #FFF;
 }
