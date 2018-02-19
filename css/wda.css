@@ -71,7 +71,7 @@
     display: inline-block;
     text-align: center;
     border: 2px dotted #C0C0C0;
-    margin-left: -2px;
+    margin-left: 10px;
 }
 
 .wda-tree-cell {
