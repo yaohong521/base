@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="../../js/jquery/jquery-2.2.0.min.js"></script>
-    <title>第二章 回忆</title>
+    <title>告白</title>
     <style>
         * {
             margin: 0;
@@ -17,20 +17,61 @@
             height: 100%;
             overflow: hidden;
         }
-
-        .wda-content-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 12px;
-        }
     </style>
 </head>
 <body>
-<div class="wda-content-center" style="width: 100%;text-align: center">
-    未完 待续...
-    我的爸爸吧
-</div>
+<canvas id="bodyCanvas"></canvas>
+<script>
+    var bodyCan, bodyCxt;
+    var w, h;
+    var time = 1, txtHeight = 0;
+    var myWords = [
+        {"content": "   1、首先，感谢涛哥看的起我，给我这个机会认识你。"},
+        {"content": "   2、我是一个不懂情调的人。"},
+        {"content": "   3、唯一能表达自己的也许只有文字了。"},
+        {"content": "   4、我经历过一段七年的恋爱，分手三个多月了。"},
+        {"content": "   5、至于原因，我不想多说，是我没有足够的能力维护那份感情。"},
+        {"content": "   6、不可能像她那样用新欢来抹去这份感情，我需要时间来沉淀自己。"},
+        {"content": "   7、我不知道用多久才会真正走出这个阴影，才能真正释怀。"},
+        {"content": "   8、没有整理好自己就去接受新的感情，我做不到，对于<你>也不公平"},
+        {"content": "   8、我在等一个对的人，给我勇气去面对这一切。"},
+        {"content": "   9、请你知晓此时我的心境,希望你理解。"},
+        {"content": "   10、至于我的微信名字：Base"},
+        {"content": "   11、意思是基础，是一种对自己的勉励，一切都要牢固。"},
+        {"content": "   12、我不会说什么甜言蜜语，我只会埋在心里去守护着。"},
+        {"content": "   13、愿有一天遇到那个理解我的人。"},
+        {"content": "   14、时间仓促，页面做的很粗糙，没有背景音乐，先这样吧！"}
+    ];
+
+    $(function () {
+        bodyCan = document.getElementById("bodyCanvas");
+        bodyCxt = bodyCan.getContext("2d");
+
+        w = window.document.body.offsetWidth;
+        h = window.document.body.offsetHeight;
+
+        txtHeight = h /16;
+
+        if (bodyCxt) {
+            bodyCan.width = w;
+            bodyCan.height = h;
+
+            //背景图
+            bodyCxt.fillStyle = "#F3F3F3";
+            bodyCxt.fillRect(0, 0, w, h);
+
+            initWords();
+        } else {
+            alert("您的浏览器不支持canvas标签");
+        }
+    });
+
+    function initWords() {
+        bodyCxt.fillStyle = "#C2418E";
+        bodyCxt.fillText(myWords[time - 1].content, 0, time * txtHeight);
+        time = time + 1;
+        setTimeout(initWords, 2000);
+    }
+</script>
 </body>
 </html>
