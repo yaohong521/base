@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <script type="text/javascript" src="../js/jquery/jquery-2.2.0.min.js"></script>
+    <!--<script type="text/javascript" src="../js/jquery/jquery-2.2.0.min.js"></script>-->
     <style>
         body, html {
             margin: 0;
@@ -87,10 +87,18 @@
     </style>
     <script>
         $(function () {
-            var w = window.screen.width;
-            var h = window.screen.height;
+//            var w = window.screen.width;
+//            var h = window.screen.height;
 //            alert("当前屏幕宽度" + w);
 //            alert("当前屏幕高度" + h);
+            window.resizeTo(500,500)
+            window.resizeBy(500,500)
+
+            var i=1;
+            if(i>2){
+
+            }
+            alert(2222)
         });
     </script>
 </head>

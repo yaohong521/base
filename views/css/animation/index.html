@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .scoreContent {
+            position: absolute;
+            animation: showRule 10s;
+            color: red;
+            font-weight: bold;
+            width: 50px;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes showRule {
+            0% {
+                left: 200px;
+                top: 0;
+                opacity: 1;
+            }
+            20% {
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+            40% {
+                left: 200px;
+                top: 200px;
+                opacity: 1;
+                transform: rotate(360deg)
+            }
+            60% {
+                left: 400px;
+                top: 0;
+                opacity: 0;
+            }
+            80% {
+                left: 200px;
+                top: -200px;
+                opacity: 1;
+                transform: rotate(-360deg)
+            }
+            90% {
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+            100% {
+                left: 200px;
+                top: 0;
+                opacity: 1;
+            }
+        }
+
+        .contentCenter {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -52%);
+            margin-left: -200px;
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="contentCenter">
+    <div class="scoreContent">
+        -50分
+    </div>
+</div>
+</body>
+</html>

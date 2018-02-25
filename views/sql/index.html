@@ -21,6 +21,29 @@
     WHERE USER_PHONE='15169160503'
     ) B ON 1=1
 </pre>
-<hr />
+<hr/>
+<h3>2、CASE WHEN THEN ELSE END的使用</h3>
+<pre>
+    select user_name, (
+	case when user_sex='01' then '男'
+	when user_sex='02' then '女'
+	else '保密' end
+    ) user_sex
+    from t_sys_user
+
+    ==========================================
+
+    select user_name,(
+	case user_sex
+	when '01' then '男'
+	when '02' then '女'
+	else '保密' end
+    ) user_sex
+    from t_sys_user
+
+    以上是2种方法
+</pre>
+<hr/>
+<h3>3、LEFT JOIN使用</h3>
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date对象方法</title>
+</head>
+<body>
+<h3>1、Date的使用</h3>
+    <pre>
+        var date = new Date();
+        var year = date.getFullYear();
+        console.log(year);
+        var month = date.getMonth() + 1;
+        console.log(month);
+
+        //当月最后一天完整日期、最后一天的大小
+        var day = new Date(year, month, 0);
+        console.log(day);
+        console.log(day.getDate());
+
+        //下个月第一天（肯定是1号啦）
+        var day2 = new Date(year, month, 1);
+        console.log(day2);
+        console.log(day2.getDate());
+
+
+        eg:
+        //获取当月第一天日期
+        function getCurrentMonthFirstDay(model) {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            month = (month > 10 ? "" : "0") + month;
+            if (model) return year + model + month + model + "01";
+            return year + month + "01";
+        }
+    </pre>
+<hr>
+<script>
+    window.onload = function () {
+        var date = new Date();
+        var year = date.getFullYear();
+        console.log(year);
+        var month = date.getMonth() + 1;
+        console.log(month);
+
+        //当月最后一天完整日期、最后一天的大小
+        var day = new Date(year, month, 0);
+        console.log(day);
+        console.log(day.getDate());
+
+        //下个月第一天（肯定是1号啦）
+        var day2 = new Date(year, month, 1);
+        console.log(day2);
+        console.log(day2.getDate());
+
+        var firstDay1 = getCurrentMonthFirstDay();
+        var firstDay2 = getCurrentMonthFirstDay("-");
+        console.log(firstDay1);
+        console.log(firstDay2);
+
+        var str = "/openApi/test";
+        var array = str.split("/");
+        console.log(array)
+    };
+
+    //获取当月第一天日期
+    function getCurrentMonthFirstDay(model) {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        month = (month > 10 ? "" : "0") + month;
+        if (model) return year + model + month + model + "01";
+        return year + month + "01";
+    }
+</script>
+</body>
+</html>
