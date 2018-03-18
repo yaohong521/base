@@ -17,10 +17,19 @@
             height: 100%;
             overflow: hidden;
         }
+
+        .wda-content-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+        }
     </style>
 </head>
 <body>
-<canvas id="bodyCanvas"></canvas>
+<!--<canvas id="bodyCanvas"></canvas>-->
+<div class="wda-content-center">维护中...</div>
 <script>
     var bodyCan, bodyCxt;
     var w, h;
@@ -43,28 +52,28 @@
         {"content": "   14、时间仓促，页面做的很粗糙，没有背景音乐，先这样吧！"}
     ];
 
-    $(function () {
-        bodyCan = document.getElementById("bodyCanvas");
-        bodyCxt = bodyCan.getContext("2d");
-
-        w = window.document.body.offsetWidth;
-        h = window.document.body.offsetHeight;
-
-        txtHeight = h /16;
-
-        if (bodyCxt) {
-            bodyCan.width = w;
-            bodyCan.height = h;
-
-            //背景图
-            bodyCxt.fillStyle = "#F3F3F3";
-            bodyCxt.fillRect(0, 0, w, h);
-
-            initWords();
-        } else {
-            alert("您的浏览器不支持canvas标签");
-        }
-    });
+    // $(function () {
+    //     bodyCan = document.getElementById("bodyCanvas");
+    //     bodyCxt = bodyCan.getContext("2d");
+    //
+    //     w = window.document.body.offsetWidth;
+    //     h = window.document.body.offsetHeight;
+    //
+    //     txtHeight = h /16;
+    //
+    //     if (bodyCxt) {
+    //         bodyCan.width = w;
+    //         bodyCan.height = h;
+    //
+    //         //背景图
+    //         bodyCxt.fillStyle = "#F3F3F3";
+    //         bodyCxt.fillRect(0, 0, w, h);
+    //
+    //         initWords();
+    //     } else {
+    //         alert("您的浏览器不支持canvas标签");
+    //     }
+    // });
 
     function initWords() {
         bodyCxt.fillStyle = "#C2418E";
