@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wda-content1 {
+            background: #8f8f94;
+            height: 400px;
+        }
+
+        .wda-content2 {
+            padding-top: 200px;
+            text-align: center;
+            perspective: 800;
+            -webkit-perspective: 800;
+        }
+
+        .centerPoint {
+            width: 10px;
+            height: 10px;
+            background: red;
+            display: inline-block;
+            margin: auto;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: visible;
+            -webkit-transform: rotateX(90deg) rotateZ(0deg);
+        }
+
+        .action {
+            -webkit-animation: spin 10s linear infinite;
+        }
+
+        .one {
+            -webkit-transform: rotateZ(90deg) translateX(80px) rotateX(-90deg)
+        }
+
+        .two {
+            -webkit-transform: rotateZ(210deg) translateX(80px) rotateX(-90deg)
+        }
+
+        .three {
+            -webkit-transform: rotateZ(330deg) translateX(80px) rotateX(-90deg)
+        }
+
+        .egg {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: visible;
+        }
+
+        .egg > span {
+            display: block;
+            height: 50px;
+            width: 50px;
+            background: url("../../images/login/logo.jpg") no-repeat;
+            background-size: 100% auto;
+        }
+        .egg > span:after{
+            /*content: "";*/
+            /*position: absolute;*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+            /*background: url("../../images/login/login_content.png") no-repeat center center;*/
+            /*background-size: 100% auto;*/
+        }
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotateX(90deg) rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateX(90deg) rotateZ(360deg);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="wda-content1">
+    <div class="wda-content2">
+        <div class="centerPoint action">
+            <div class="egg one">
+                <span></span>
+            </div>
+            <div class="egg two">
+                <span></span>
+            </div>
+            <div class="egg three">
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
