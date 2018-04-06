@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>页面宽度</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>页面宽度和高度</title>
 </head>
 <body>
 <div id="w1"></div>
@@ -14,6 +15,16 @@
 <div id="w4"></div>
 <hr>
 <div id="w5"></div>
+<hr>
+<div id="h1"></div>
+<hr>
+<div id="h2"></div>
+<hr>
+<div id="h3"></div>
+<hr>
+<div id="h4"></div>
+<hr>
+<div id="h5"></div>
 <hr>
 </body>
 <script type="text/javascript">
@@ -28,6 +39,16 @@
 
     var w5 = document.body.offsetWidth;
 
+    var h1 = window.innerHeight;
+
+    var h2 = window.screen.height;
+
+    var h3 = window.screen.availHeight;
+
+    var h4 = document.body.clientHeight;
+
+    var h5 = document.body.offsetHeight;
+
 
     initText("w1", "window.innerWidth：" + w1);
     initText("w2", "window.screen.width：" + w2);
@@ -35,6 +56,11 @@
     initText("w4", "document.body.clientWidth：" + w4);
     initText("w5", "document.body.offsetWidth：" + w5);
 
+    initText("h1", "window.innerHeight：" + h1);
+    initText("h2", "window.screen.height：" + h2);
+    initText("h3", "window.screen.availHeight：" + h3);
+    initText("h4", "document.body.clientHeight：" + h4);
+    initText("h5", "document.body.offsetHeight：" + h5);
 
     function initText(id, text) {
         document.getElementById(id).innerText = text;
