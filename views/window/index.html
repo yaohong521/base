@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面宽度</title>
+</head>
+<body>
+<div id="w1"></div>
+<hr>
+<div id="w2"></div>
+<hr>
+<div id="w3"></div>
+<hr>
+<div id="w4"></div>
+<hr>
+<div id="w5"></div>
+<hr>
+</body>
+<script type="text/javascript">
+
+    var w1 = window.innerWidth;
+
+    var w2 = window.screen.width;
+
+    var w3 = window.screen.availWidth;
+
+    var w4 = document.body.clientWidth;
+
+    var w5 = document.body.offsetWidth;
+
+
+    initText("w1", "window.innerWidth：" + w1);
+    initText("w2", "window.screen.width：" + w2);
+    initText("w3", "window.screen.availWidth：" + w3);
+    initText("w4", "document.body.clientWidth：" + w4);
+    initText("w5", "document.body.offsetWidth：" + w5);
+
+
+    function initText(id, text) {
+        document.getElementById(id).innerText = text;
+    }
+</script>
+</html>
