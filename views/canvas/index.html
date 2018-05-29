@@ -18,7 +18,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 18px;
-        color: #FFF
+        color: #FFF;
     }
 
     canvas {
@@ -29,13 +29,25 @@
 <body>
 <canvas id="canvas">您的浏览器不支持canvas标签</canvas>
 <div class="wda-content-center">
-    等待....
+    <div style="margin-bottom:10px">个人简介</div>
+    <canvas id="mainCanvas" height="200px" width="300px" style="background: none"></canvas>
 </div>
 </body>
 <script>
     //获取画布节点
     var can = document.getElementById("canvas");
+    var mainCan = document.getElementById("mainCanvas");
     var cxt = can.getContext("2d");
+    var mainCxt = mainCan.getContext("2d");
+
+    mainCxt.fillStyle = "yellow";
+    mainCxt.fillText("姓名：武晓泉", 0, 10);
+    mainCxt.fillText("性别：男", 0, 30);
+    mainCxt.fillText("职业：程序员", 0, 50);
+    mainCxt.fillText("收入：一般", 0, 70);
+    mainCxt.fillText("当前状态：无车、无房、低存款", 0, 90);
+    mainCxt.fillText("家庭条件：贫困", 0, 110);
+    mainCxt.fillText("期待另一半：160以上、人品第一位、孝敬父母、顾家、其他不看重。", 0, 130);
 
     //获取屏幕高度和宽度
     var w = can.width = window.innerWidth;
